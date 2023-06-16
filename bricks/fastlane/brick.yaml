@@ -1,5 +1,5 @@
 name: fastlane
-description: A new brick created with the Mason CLI.
+description: Generate fastlane Fastfile for auto publish to Appstore and Playstore.
 
 # The following defines the brick repository url.
 # Uncomment and update the following line before publishing the brick.
