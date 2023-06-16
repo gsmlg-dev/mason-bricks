@@ -1,0 +1,3 @@
+bricks:
+  fastlane:
+    path: bricks/fastlane
