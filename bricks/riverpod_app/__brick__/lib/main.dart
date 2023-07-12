@@ -7,6 +7,8 @@ import 'package:{{appName.snakeCase()}}/database/database.dart';
 void main() async {
   await Database.initialize();
 
+  await Database.performMigrationIfNeeded();
+
   runApp(
     const ProviderScope(observers: [StateLogger()], child: App()),
   );
