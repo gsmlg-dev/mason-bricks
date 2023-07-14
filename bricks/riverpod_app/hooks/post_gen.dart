@@ -1,6 +1,6 @@
 import 'package:mason/mason.dart';
 
-void run(HookContext context) {
+void run(HookContext context) async {
   final progress = context.logger.progress('Installing packages');
 
   final pkgs = [
