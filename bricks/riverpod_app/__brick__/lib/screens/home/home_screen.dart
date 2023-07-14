@@ -8,7 +8,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final rooms = ref.watch(roomsProvider);
+    // final repos = ref.watch(reposProvider);
 
     return Scaffold(
       body: SizedBox(

@@ -36,13 +36,13 @@ class Repo {
 }
 
 @riverpod
-Stream<List<Repo>> rooms(ref) {
+Stream<List<Repo>> repos(ref) {
   return Stream.periodic(
     Duration(hours: 1),
     (_) => repoList
   ).startWith(repoList)
   .asyncMap((List<List<String>> list) async {
-    final List<Repo> newList = await Future.wait(list.map<Future<Room>>((e) async {
+    final List<Repo> newList = await Future.wait(list.map<Future<Repo>>((e) async {
         final repo = Repo(e);
         await repo.fetch();
         return repo;
