@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:{{appName.snakeCase()}}/constants.dart';
-kkkkkk
+import 'package:demo/constants.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
   static const path = '/splash';
@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('{{appName.pascalCase()}}'),
+        child: Text(Constants.appName),
       ),
     );
   }

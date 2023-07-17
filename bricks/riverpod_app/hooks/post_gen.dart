@@ -8,7 +8,8 @@ void run(HookContext context) async {
     'go_router',
     'flutter_riverpod',
     'riverpod_annotation',
-    'isar'
+    'shared_preferences',
+    'isar',
     'isar_flutter_libs',
     'path_provider',
   ];

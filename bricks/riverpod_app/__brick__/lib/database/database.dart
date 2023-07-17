@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart' show kReleaseMode;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart'
     show getApplicationSupportDirectory;
@@ -6,8 +7,8 @@ import 'package:path_provider/path_provider.dart'
 import 'schema.dart' show allSchema;
 
 class Database {
-  const version = 1;
-  const saveKey = 'database_version';
+  final version = 1;
+  final saveKey = 'database_version';
 
   static late Database _singleton;
 
@@ -31,29 +32,31 @@ class Database {
   Database._(this.instance);
 
   static Future<void> performMigrationIfNeeded() async {
-    final db = Database();
-    if (db.instance == null) {
-      throw Exception('Database not initialized');
+    try {
+      final db = Database();
+
+      final currentVersion = await db.getDataVersion();
+
+      switch(currentVersion) {
+        case 1:
+          // current version, we do not need to migrate
+          return;
+        // case 2:
+        //   await migrateV1ToV2();
+        //   break;
+        default:
+          throw Exception('Unknown version: $currentVersion');
+      }
+
+      // Update version
+      // await prefs.setInt(saveKey, db.version);
+
+    } catch(e) {
+      rethrow;
     }
-
-    final currentVersion = await db.getVersion();
-
-    switch(currentVersion) {
-      case db.version:
-        // current version, we do not need to migrate
-        return;
-      // case db.version + 1:
-      //   await migrateV1ToV2();
-      //   break;
-      default:
-        throw Exception('Unknown version: $currentVersion');
-    }
-
-    // Update version
-    // await prefs.setInt(saveKey, db.version);
   }
 
-  int getVersion() async {
+  Future<int> getDataVersion() async {
     final prefs = await SharedPreferences.getInstance();
     final currentVersion = prefs.getInt(saveKey) ?? version;
     return currentVersion;

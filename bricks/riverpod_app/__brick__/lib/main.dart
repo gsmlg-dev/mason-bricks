@@ -5,8 +5,9 @@ import 'package:{{appName.snakeCase()}}/app.dart';
 import 'package:{{appName.snakeCase()}}/database/database.dart';
 
 void main() async {
-  await Database.initialize();
+  WidgetsFlutterBinding.ensureInitialized();
 
+  await Database.initialize();
   await Database.performMigrationIfNeeded();
 
   runApp(

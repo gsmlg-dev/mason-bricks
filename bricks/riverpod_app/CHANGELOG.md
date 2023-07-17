@@ -1,3 +1,8 @@
+# 0.3.0+1
+
+- Refactor database and state initilaize.
+
+
 # 0.2.2+1
 
 - Fix typo

@@ -1,3 +1,4 @@
-// import 'schema/table.dart';
+import 'package:isar/isar.dart' show CollectionSchema;
+import 'schema/app_activities.dart';
 
-const allSchema = [];
+const List<CollectionSchema> allSchema = [AppActivitiesSchema];
