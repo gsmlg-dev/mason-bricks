@@ -27,7 +27,7 @@ class RouterNotifier extends _$RouterNotifier implements Listenable {
   String? redirect(BuildContext context, GoRouterState state) {
     if (this.state.isLoading || this.state.hasError) return null;
 
-    final isSplash = state.location == SplashScreen.path;
+    final isSplash = state.path == SplashScreen.path;
     debugPrint('isSplash: $isSplash');
     if (isSplash) {
       return HomeScreen.path;
