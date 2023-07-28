@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:demo/constants.dart';
+import 'package:{{appName.snakeCase()}}/constants.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
