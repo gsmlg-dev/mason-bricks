@@ -1,0 +1,4 @@
+name: mason_bricks
+
+packages:
+  - bricks/*

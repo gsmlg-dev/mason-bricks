@@ -1,11 +1,15 @@
 #!/bin/bash
 
 runner_build() {
-    flutter pub run build_runner build
+    dart pub run build_runner build
 }
 
 runner_watch() {
     dart pub run build_runner watch
+}
+
+runner_clean() {
+    dart pub run build_runner clean
 }
 
 build_embbed() {
@@ -23,6 +27,9 @@ case "$1" in
     ;;
     "watch")
     runner_watch
+    ;;
+    "clean")
+    runner_clean
     ;;
     "embbed")
     build_embbed

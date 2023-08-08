@@ -12,6 +12,7 @@ void run(HookContext context) async {
     'isar',
     'isar_flutter_libs',
     'path_provider',
+    'material_neumorphic',
   ];
   for (var p in pkgs) {
     await Process.run('flutter', ['pub', 'add', p]);
